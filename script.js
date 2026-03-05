@@ -3,22 +3,18 @@ function Person(name, age) {
   this.age = age;
 }
 
-// greet method
 Person.prototype.greet = function () {
-  console.log(`Hello, my name is ${this.name}, I am ${this.age} years old.`);
+  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
 };
 
 function Employee(name, age, jobTitle) {
-  // inherit properties from Person
   Person.call(this, name, age);
   this.jobTitle = jobTitle;
 }
 
-// inherit prototype
 Employee.prototype = Object.create(Person.prototype);
 Employee.prototype.constructor = Employee;
 
-// jobGreet method
 Employee.prototype.jobGreet = function () {
   console.log(`Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`);
 };
